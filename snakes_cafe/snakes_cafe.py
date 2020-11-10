@@ -9,12 +9,15 @@ print("""
 
 ** To quit at any time, type "quit" **
 
+**************************************
+
 Appetizers
 ----------
 
 Wings 
 Cookies
 Spring Rolls
+
 
 Entrees
 -------
@@ -24,11 +27,13 @@ Steak
 Meat Tornado
 A Literal Garden
 
+
 Desserts
 --------
 Ice Cream
 Cake
 Pie
+
 
 Drinks
 ------
@@ -42,8 +47,34 @@ Unicorn Tears
 
 """)
 
-order = input('> ')
+response = input("> ")
 
-orderString = f'one order of {order} has been added to your meal'
+order_amounts = {
 
-print(orderString)
+}
+
+while response != 'quit':
+
+    if response in order_amounts:
+        order_amounts[response] += 1
+
+    else:
+        order_amounts[response] = 1
+
+    if order_amounts[response] > 1:
+        reply = f'{order_amounts[response]} orders of {response} have been added to your meal'
+        print(reply)
+        response = input('> ')
+
+    else:
+        reply = f'{order_amounts[response]} order of {response} have been added to your meal'
+        print(reply)
+        response = input('> ')
+    
+
+
+    
+
+
+
+    
